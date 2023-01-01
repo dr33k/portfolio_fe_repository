@@ -1,2 +1,2 @@
 # portfolio-fe
-Repository for my portfolio website
+This is the project I'm using to show my skills on the internet. Have a look.
