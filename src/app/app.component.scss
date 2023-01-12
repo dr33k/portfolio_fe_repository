@@ -1,0 +1,41 @@
+.welcome-section{
+    display: block;
+    height: 90vh;
+}
+.welcome-section > .banner{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10% auto auto 33%;
+    height: fit-content;
+    width: 33%;
+    padding: 10px;
+    border-radius: 100px;
+}
+
+.welcome-section > .banner > #banner-text{
+    line-height: 100%;
+    font-size: 2em;
+    margin-left: 10%;
+    color: #311B92;
+}
+
+.welcome-section > .banner > .banner-image{
+    margin-right: 10px;
+}
+
+.white-see-through{
+    box-shadow: 0 10px 15px 0 rgba(#000000, 50%);
+    background-color: rgba(#f1f5f6, 60%);
+}
+
+.welcome-section > .framework-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 30px;
+}
+.welcome-section > .framework-section> .framework-card{
+    padding: 10px;
+}
