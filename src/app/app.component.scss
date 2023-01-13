@@ -29,13 +29,42 @@
     background-color: rgba(#f1f5f6, 60%);
 }
 
-.welcome-section > .framework-section{
+.framework-section{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding: 10px;
     margin: 30px;
+    width: 100%;
 }
-.welcome-section > .framework-section> .framework-card{
+
+.sliding-card{
     padding: 10px;
+    position: relative;
+}
+#skills-slide-1> .sliding-card{
+    animation: slide 2500ms;
+    animation-iteration-count: infinite;
+}
+#skills-slide-1> .sliding-card:hover{
+    opacity: 1;
+    justify-self:center ;
+}
+
+@keyframes slide{
+    0%{
+        opacity: 0;
+        left: 200px;
+        animation-timing-function:cubic-bezier(0.0, 0.0, 0.25, 1.0);
+    }
+    50%{
+        opacity: 1;
+        left: 0px;
+        }
+    100%{
+        opacity: 0;
+        left: -200px;
+        animation-timing-function: cubic-bezier(0.25, 1.0, 0.0,0.0);
+    }
+
 }
