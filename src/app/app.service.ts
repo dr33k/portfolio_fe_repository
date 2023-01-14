@@ -57,7 +57,8 @@ export class AppService {
       ['./assets/icon/docker-icon.svg', this.ALT],
       ['./assets/icon/git-icon.svg', this.ALT],
       ['./assets/icon/flyway-icon.svg', this.ALT],
-      ['./assets/icon/jira-icon.svg', this.ALT]
+      ['./assets/icon/jira-icon.svg', this.ALT],
+      ['./assets/icon/junit5-icon.svg', this.ALT]
 
     ]
   }

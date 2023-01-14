@@ -1,29 +1,32 @@
 .welcome-section{
     display: block;
     height: 90vh;
-}
-.welcome-section > .banner{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10% auto auto 33%;
-    height: fit-content;
-    width: 33%;
-    padding: 10px;
-    border-radius: 100px;
-}
 
-.welcome-section > .banner > #banner-text{
-    line-height: 100%;
-    font-size: 2em;
-    margin-left: 10%;
-    color: #311B92;
-}
 
-.welcome-section > .banner > .banner-image{
-    margin-right: 10px;
-}
+    .banner{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin:70% auto auto auto;
+        max-width: 80%;
+        height: fit-content;
+        padding: 10px;
+        border-radius: 100px;
 
+
+        #banner-text{
+            margin-left: 10%;
+            line-height: 100%;
+            font-size: 1.5em;
+            color: #311B92;
+        }
+
+        .banner-image{
+            margin-right:2%;
+        }
+    }
+}
+//Primary Skills slider
 .white-see-through{
     box-shadow: 0 10px 15px 0 rgba(#000000, 50%);
     background-color: rgba(#f1f5f6, 60%);
@@ -34,37 +37,147 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding: 10px;
-    margin: 30px;
-    width: 100%;
+    margin: 60px auto;
+    max-width: 90%;
 }
 
 .sliding-card{
+    margin:auto;
     padding: 10px;
     position: relative;
 }
-#skills-slide-1> .sliding-card{
-    animation: slide 2500ms;
-    animation-iteration-count: infinite;
-}
-#skills-slide-1> .sliding-card:hover{
-    opacity: 1;
-    justify-self:center ;
+
+$img-width: 100px;
+$img-height: 100px;
+
+.std-img{
+    height: $img-height;
+    width: $img-width;
 }
 
+#skills-slide> .sliding-card{
+    animation: slide 3000ms;
+    animation-iteration-count: infinite;
+
+    -moz-animation: slide 3000ms;
+    -moz-animation-iteration-count: infinite;
+
+    -webkit-animation: slide 3000ms;
+    -webkit-animation-iteration-count: infinite;
+
+    -o-animation: slide 3000ms;
+    -o-animation-iteration-count: infinite;
+}
 @keyframes slide{
     0%{
         opacity: 0;
-        left: 200px;
+        left: 30%;
+
         animation-timing-function:cubic-bezier(0.0, 0.0, 0.25, 1.0);
-    }
+        -moz-animation-timing-function: cubic-bezier(0.0, 0.0, 0.25, 1.0);
+        -webkit-animation-timing-function: cubic-bezier(0.0, 0.0, 0.25, 1.0);
+        -o-animation-timing-function: cubic-bezier(0.0, 0.0, 0.25, 1.0);
+
+         }
     50%{
         opacity: 1;
         left: 0px;
         }
     100%{
-        opacity: 0;
-        left: -200px;
+        opacity:0;
+        left: -30%;
+
         animation-timing-function: cubic-bezier(0.25, 1.0, 0.0,0.0);
+        -moz-animation-timing-function: cubic-bezier(0.25, 1.0, 0.0,0.0);
+        -webkit-animation-timing-function: cubic-bezier(0.25, 1.0, 0.0,0.0);
+        -o-animation-timing-function: cubic-bezier(0.25, 1.0, 0.0,0.0);
+
+   }
+}
+
+//Secondary Skills scroller
+@mixin white-gradient{
+    background:linear-gradient(to right, rgba(255,255,255,0)0% , rgba(255,255,255,1)100%);
+}
+
+$scroller-height: 140px;
+$scroll-item-number: 5;
+$scroll-item-width: $img-width;
+$pad-plus-marg: 30px;
+
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(calc(-1 * ($scroll-item-width + ($pad-plus-marg * 2)) * $scroll-item-number));
+    }
+}
+
+.scroller{
+    position: relative;
+    max-width:80%;
+    height:$scroller-height;
+    overflow: hidden;
+    border-radius: 100px;
+
+    &::before,&::after{
+        @include white-gradient;
+        content: "";
+        position: absolute;
+        z-index: 2;
+        width: 20%;
+        height: 160px;
     }
 
+    &::before{
+        left: 0;
+        top: 0;
+        transform: rotateZ(180deg)
+    }
+
+    &::after{
+        right: 0;
+        top: 0;
+    }
+
+    .scroll-track{
+        animation: scroll 15s linear infinite;
+        -moz-animation: scroll 15s linear infinite;
+        -webkit-animation: scroll 15s linear infinite;
+        -o-animation: scroll 15s linear infinite;
+
+        display: flex;
+        width: calc(($scroll-item-width + ($pad-plus-marg * 2))* $scroll-item-number * 2);
+        position: absolute;
+        top:0;
+
+    }
+
+    .scroll-item{
+        margin: 20px;   //These two add up
+        padding: 10px;  //  to give $pad-plus-marg
+    }
 }
+
+@media only screen and (min-width: 600px) {
+
+.welcome-section > .banner{
+    margin: 10% auto auto 33%;
+    width: 33%;
+}
+
+.welcome-section > .banner > #banner-text{
+    font-size: 2em;
+}
+
+.framework-section{
+    margin: 40px auto;
+}
+.scroller{
+    width: 33%;
+}
+
+
+}
+

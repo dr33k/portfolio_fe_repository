@@ -4,16 +4,26 @@
     <img class="banner-image" width="50" height="50" [src]="skill.language_logo_tuple[0]" [alt]="skill.language_logo_tuple[1]"/>
   </div>
 
-  <div id="skills-slide-1" class="framework-section">
+  <div id="skills-slide" class="framework-section">
       <mat-card class="sliding-card white-see-through" *ngFor="let logo_tuple of skill.framework_logo_tuples">
-        <img mat-card-image [width]="width" [height]="height" [src]=logo_tuple[0] [alt]=logo_tuple[1] />
+        <img class="std-img" mat-card-image [src]=logo_tuple[0] [alt]=logo_tuple[1] />
       </mat-card>
     </div>
 
-  <div class="framework-section">
-    <mat-card class="sliding-card white-see-through" *ngFor="let s_skill of secondary_skill_tuples">
-      <img mat-card-image [width]="width" [height]="height" [src]=s_skill[0] [alt]=s_skill[1] />
-    </mat-card>
-
-</div>
+  <div class="scroller framework-section white-see-through">
+    <div class="scroll-track">
+      <div class="scroll-item" *ngFor="let s_skill of secondary_skill_tuples">
+        <img   class="std-img"
+        [src]=s_skill[0] [alt]=s_skill[1] />
+      </div>
+      <div class="scroll-item" *ngFor="let s_skill of secondary_skill_tuples">
+        <img   class="std-img"
+        [src]=s_skill[0] [alt]=s_skill[1] />
+      </div>
+      <div class="scroll-item" *ngFor="let s_skill of secondary_skill_tuples">
+        <img   class="std-img"
+        [src]=s_skill[0] [alt]=s_skill[1] />
+      </div>
+    </div>
+  </div>
 </div>

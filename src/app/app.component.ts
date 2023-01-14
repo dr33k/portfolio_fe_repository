@@ -13,12 +13,7 @@ export class AppComponent implements OnInit {
   skills!:Skill[];
   skill!:Skill;
   secondary_skill_tuples!:[string, string][];
-  width: number = 100;
-  height: number = 100;
  
-  pause_skills_animation: boolean = false;
-  pause_secondary_skills_animation: boolean = false;
-
   sliding_cards:HTMLCollectionOf<Element>|undefined;
 
   constructor(private appService: AppService){
@@ -35,19 +30,7 @@ export class AppComponent implements OnInit {
     var counter: number = -1;
     setInterval(()=>{
       this.skill = this.skills[++counter < skills_length ? counter: counter=0];
-      
-      // else{
-      //   //Get Sliding Cards HTMLCollectionOf<>
-      //   const skills_slide_1 = document.getElementById("skills-slide-1");
-      //   const sliding_cards  =  skills_slide_1?.getElementsByClassName('sliding-card');
-
-      //   if(sliding_cards){
-      //     for(let i = 0; i< sliding_cards.length; i++){
-      //       (sliding_cards[i] as HTMLElement).style.animationPlayState = 'paused'
-      //   }
-      // }
-      // }
-    },2500);
+    },3000);
   }
 
   fetch_skills(): Skill[]{
@@ -57,10 +40,10 @@ export class AppComponent implements OnInit {
     return this.appService.get_secondary_skills()
   }
 
-  pause_interval_1(): void{
-    this.pause_skills_animation = true;
-  }
-  play_interval_1(): void{
-    this.pause_skills_animation = false;
-  }
+  // pause_interval_1(): void{
+  //   this.pause_skills_animation = true;
+  // }
+  // play_interval_1(): void{
+  //   this.pause_skills_animation = false;
+  // }
 }
